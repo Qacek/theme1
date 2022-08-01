@@ -1,0 +1,183 @@
+/* SETTINGS SIDEBAR ICONS */
+%settingsSidebar {
+  // ICON MAP
+  $userSettingsIcons: (
+    // MY ACCOUNT
+    'my-account': 'https://clearvision.gitlab.io/icons/person.svg',
+    // USER PROFILE
+    'profile-customization': 'https://clearvision.gitlab.io/icons/user_profile.svg',
+    // PRIVACY & SAFETY
+    'privacy-&-safety': 'https://clearvision.gitlab.io/icons/security.svg',
+    // Authorized Apps
+    'authorized-apps': 'https://clearvision.gitlab.io/icons/apps.svg',
+    // CONNECTIONS
+    'connections': 'https://clearvision.gitlab.io/icons/link.svg',
+
+    // NITRO
+    'discord-nitro': 'https://clearvision.gitlab.io/icons/nitro.svg',
+    // SERVER BOOST
+    'nitro-server-boost': 'https://clearvision.gitlab.io/icons/server_boost.svg',
+    // SUBSCRIPTIONS
+    'subscriptions': 'https://clearvision.gitlab.io/icons/subscriptions.svg',
+    // GIFT INVENTORY
+    'library-inventory': 'https://clearvision.gitlab.io/icons/gift.svg',
+    // BILLING
+    'billing': 'https://clearvision.gitlab.io/icons/payment.svg',
+
+    // APPEARANCE
+    'appearance': 'https://clearvision.gitlab.io/icons/camera.svg',
+    // ACCESSIBILITY
+    'accessibility': 'https://clearvision.gitlab.io/icons/accessibility.svg',
+    // VOICE & VIDEO
+    'voice-&-video': 'https://clearvision.gitlab.io/icons/mic.svg',
+    // TEXT & IMAGES
+    'text-&-images': 'https://clearvision.gitlab.io/icons/chat.svg',
+    // NOTIFICATIONS
+    'notifications': 'https://clearvision.gitlab.io/icons/notifications.svg',
+    // KEYBINDS
+    'keybinds': 'https://clearvision.gitlab.io/icons/keyboard.svg',
+    // LANGUAGE
+    'language': 'https://clearvision.gitlab.io/icons/language.svg',
+    // WINDOWS SETTINGS
+    'windows': 'https://clearvision.gitlab.io/icons/windows.svg',
+    // LINUX SETTINGS
+    'linux': 'https://clearvision.gitlab.io/icons/linux.svg',
+    // STREAMER MODE
+    'streamer-mode': 'https://clearvision.gitlab.io/icons/videocam.svg',
+    // ADVANCED
+    'advanced': 'https://clearvision.gitlab.io/icons/bug.svg',
+
+    // GAME ACTIVITY
+    'game-activity': 'https://clearvision.gitlab.io/icons/games.svg',
+    // OVERLAY
+    'overlay': 'https://clearvision.gitlab.io/icons/aspect_ratio.svg',
+
+    // CHANGE LOG
+    'changelog': 'https://clearvision.gitlab.io/icons/history.svg',
+    // HYPESQUAD
+    'hypesquad-online': 'https://clearvision.gitlab.io/icons/hypesquad.svg'
+  );
+  
+  $serverSettingsIcons: (
+    // OVERVIEW
+    'overview': 'https://clearvision.gitlab.io/icons/info.svg',
+    // ROLES
+    'roles': 'https://clearvision.gitlab.io/icons/flag.svg',
+    // EMOJI
+    'emoji': 'https://clearvision.gitlab.io/icons/emoji.svg',
+    // STICKERS
+    'stickers': 'https://clearvision.gitlab.io/icons/sticker.svg',
+    // MODERATION
+    'moderation': 'https://clearvision.gitlab.io/icons/security.svg',
+    // AUTOMOD
+    'guild_automod': 'https://clearvision.gitlab.io/icons/filter_list.svg',
+    // AUDIT LOG
+    'audit_log': 'https://clearvision.gitlab.io/icons/list.svg',
+    // INTEGRATIONS
+    'integrations': 'https://clearvision.gitlab.io/icons/puzzle.svg',
+    // WIDGET
+    'widget': 'https://clearvision.gitlab.io/icons/widgets.svg',
+    // SERVER TEMPLATE
+    'guild_templates': 'https://clearvision.gitlab.io/icons/website.svg',
+    // CUSTOM INVITE LINK
+    'vanity_url': 'https://clearvision.gitlab.io/icons/link_plus.svg',
+
+    // ENABLE COMMUNITY/OVERVIEW
+    'community': 'https://clearvision.gitlab.io/icons/people.svg',
+    // SERVER INSIGHTS
+    'analytics': 'https://clearvision.gitlab.io/icons/insights.svg',
+    // PARTNER PROGRAM
+    'partner': 'https://clearvision.gitlab.io/icons/handshake.svg',
+    // DISCOVERY
+    'discovery': 'https://clearvision.gitlab.io/icons/explore.svg',
+    // MEMBERSHIP SCREENING
+    'member_verification': 'https://clearvision.gitlab.io/icons/person_search.svg',
+    // WELCOME SCREEN
+    'community_welcome': '',
+    // SERVER BOOST STATUS
+    'guild_premium': 'https://clearvision.gitlab.io/icons/server_boost.svg',
+
+    // MEMBERS
+    'members': 'https://clearvision.gitlab.io/icons/group.svg',
+    // INVITES
+    'instant_invites': 'https://clearvision.gitlab.io/icons/person_add.svg',
+    // BANS
+    'bans': 'https://clearvision.gitlab.io/icons/hammer.svg'
+  );
+
+  $channelSettingsIcons: (
+    /* OVERVIEW - DUPE
+    'overview': 'https://clearvision.gitlab.io/icons/info.svg', */
+    // PERMISSIONS
+    'permissions': 'https://clearvision.gitlab.io/icons/rule.svg',
+    /* INVITES - DUPE
+    'instant_invites': 'https://clearvision.gitlab.io/icons/person_add.svg', */
+    /* INTEGRATIONS - DUPE
+    'integrations': 'https://clearvision.gitlab.io/icons/puzzle.svg' */
+  );
+
+  $dangerIcons: (
+    // LOG OUT
+    'logout': 'https://clearvision.gitlab.io/icons/exit.svg',
+    // DELETE
+    'delete': 'https://clearvision.gitlab.io/icons/delete.svg'
+  );
+
+  // GENERAL STYLES
+  %tabBarItem {
+    padding-left: 50px !important;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 15px;
+      margin-top: -2px;
+    }
+    &:hover:before {
+      transform: rotateY(180deg);
+      transition: all 0.15s ease-in-out;
+    }
+  }
+
+  // USER SETTINGS
+  @each $i,
+  $u in $userSettingsIcons {
+    %tabBarItem[aria-controls='#{$i}-tab']:before {
+      background-image: url(#{$u});
+    }
+  }
+
+  // SERVER SETTINGS
+  @each $i,
+  $u in $serverSettingsIcons {
+    %tabBarItem[aria-controls='#{$i}-tab']:before {
+      background-image: url(#{$u});
+    }
+  }
+
+  // CHANNEL SETTINGS
+  @each $i,
+  $u in $channelSettingsIcons {
+    %tabBarItem[aria-controls='#{$i}-tab']:before {
+      background-image: url(#{$u});
+    }
+  }
+
+  // DANGER
+  @each $i,
+  $u in $dangerIcons {
+    %tabBarItem[aria-controls='#{$i}-tab']:before {
+      -webkit-mask: url(#{$u});
+      mask: url(#{$u});
+    }
+  }
+}
+
+// DISCORD RIGHT SIDE ICONS
+%premiumLabel>svg,
+.tabBarItemContainer-2HdIlr>svg,
+%serverBoostIcon,
+.side-2ur1Qk .textBadge-1fdDPJ {
+  margin-right: 15px;
+}
